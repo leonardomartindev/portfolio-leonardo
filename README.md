@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfólio Pessoal - Leonardo Martin de Oliveira
+Bem-vindo ao meu portfólio pessoal! Este projeto foi desenvolvido para mostrar minhas habilidades, projetos e experiências de forma criativa e interativa. Ele foi construído com as mais modernas tecnologias e possui um design único, inspirado em interfaces de terminal e estilo hacker.
 
-## Getting Started
+## 🚀 Tecnologias Utilizadas
+- Next.js (App Router): Framework React para renderização estática e dinâmica, com roteamento moderno.
 
-First, run the development server:
+- TypeScript: Adiciona tipagem estática ao JavaScript para maior segurança e produtividade.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- CSS Modules: Para estilização modular e organizada.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Zod: Biblioteca de validação de dados usada no formulário de contato.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Nodemailer: Para envio de e-mails a partir do formulário de contato.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- DatoCMS: CMS headless para gerenciamento de projetos e conteúdos textuais.
 
-## Learn More
+- Fira Code: Fonte monoespaçada para o estilo terminal.
 
-To learn more about Next.js, take a look at the following resources:
+- React Icons: Ícones para melhorar a experiência visual.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Funcionalidades Principais
+Página Inicial: Apresentação com efeitos de digitação (typing effect) e estilo terminal.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Seção "Sobre": Informações pessoais e profissionais.
 
-## Deploy on Vercel
+- Seção de Habilidades: Lista das tecnologias que domino.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Seção de Projetos:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+  - Exibição dos projetos com detalhes, imagens e links.
+
+  - Redirecionamento para uma página única de cada projeto.
+
+- Formulário de Contato:
+
+Integrado com Nodemailer para envio de e-mails.
+
+  - Validação de dados com Zod.
+
+- Links para Redes Sociais: Integração com LinkedIn, GitHub e outras plataformas.
+
+##  🎨 Design e Estilo
+O design do portfólio foi pensado para transmitir uma vibe moderna e tecnológica, com inspiração em interfaces de terminal e estilo hacker. As cores predominantes são preto e verde, e a fonte utilizada é a Fira Code, que dá um toque especial ao estilo de código.
+
+## 🔗 Links Úteis
+Deploy: [Link para o deploy do projeto]
+
+- LinkedIn: [Leonardo Martin De Oliveira](https://www.linkedin.com/in/leonardo-martin-dev/)
+
+- Instagram: [[devleonardomartin]](https://www.instagram.com/devleonardomartin/)
+
+👨‍💻 Autor
+Leonardo Martin de Oliveira <br/>
+Olá! Sou o Leonardo, um entusiasta de 19 anos apaixonado por tecnologia e desenvolvimento de sistemas. Atualmente, estou investindo minha energia na minha formação em Análise e Desenvolvimento de Sistemas na FIAP. Minha jornada nesse campo começou há alguns meses, e desde então tenho dedicado meu tempo e esforço para me aprimorar constantemente.

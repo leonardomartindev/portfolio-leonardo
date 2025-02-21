@@ -1,95 +1,72 @@
-import Image from "next/image";
+import { performRequest } from "@/lib/datocms";
 import styles from "./page.module.css";
+import {
+  ABOUT_CONTENT_QUERY,
+  HEADER_CONTENT_QUERY,
+  PROJETCTS_CONTENT_QUERY,
+  SKILLS_CONTENT_QUERY,
+  SOCIAL_CONTENT_QUERY,
+} from "@/lib/queries";
+import {
+  AboutType,
+  HeaderType,
+  ProjectsType,
+  SkillsType,
+  SocialLinksType,
+} from "@/types/pageData";
+import Header from "./components/header/header";
+import About from "./components/about/about";
+import Skills from "./components/skills/Skills";
+import Projects from "./components/projects/Projects";
+import Contact from "./components/contact/Contact";
+import SocialLinks from "./components/socialLinks/SocialLinks";
 
-export default function Home() {
+export default async function Home() {
+  // Header section
+  const headerReponse = (await performRequest(
+    HEADER_CONTENT_QUERY,
+    {}
+  )) as HeaderType;
+
+  // About section
+  const aboutReponse = (await performRequest(
+    ABOUT_CONTENT_QUERY,
+    {}
+  )) as AboutType;
+
+  // Skills section
+  const skillsReponse = (await performRequest(
+    SKILLS_CONTENT_QUERY,
+    {}
+  )) as SkillsType;
+
+  // Projects section
+  const projectsReponse = (await performRequest(
+    PROJETCTS_CONTENT_QUERY,
+    {}
+  )) as ProjectsType;
+
+  // Social links section
+  const socialReponse = (await performRequest(
+    SOCIAL_CONTENT_QUERY,
+    {}
+  )) as SocialLinksType;
+
+  const formatedResponseHeader = headerReponse.landingpage.header;
+  const formatedResponseAbout = aboutReponse.landingpage.aboutMe;
+  const formatedResponseSkills = skillsReponse.landingpage.skills.skills;
+  const formatedResponseProjects =
+    projectsReponse.landingpage.projects.projects;
+  const formatedResponseSocialLinks = socialReponse.landingpage.sociallinks;
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    <>
+      <Header headerData={formatedResponseHeader} />
+      <About aboutData={formatedResponseAbout} />
+      <Skills skillsData={formatedResponseSkills} />
+      <Projects projectsData={formatedResponseProjects} />
+      <Contact />
+      <SocialLinks socialLinksData={formatedResponseSocialLinks} />
+    </>
   );
 }

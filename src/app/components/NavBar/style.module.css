@@ -1,0 +1,58 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--contrast);
+    border-bottom: 2px solid var(--primary);
+    color: var(--primary);
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem;
+    z-index: 1;
+}
+
+.nav a {
+    color: var(--primary);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #00ff00; 
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background-color: #00ff00;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.nav a:hover {
+    animation: fadeBlink 1s infinite;
+}
+
+@keyframes fadeBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@media (max-width: 768px) {
+    .nav{
+        display: none;
+    }
+}

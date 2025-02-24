@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  height: 100vh;
+  height: auto;
 }
 
 .subtitle {
@@ -29,7 +29,7 @@
   text-transform: capitalize;
   margin-top: 1rem;
   width: 60%;
-  line-height: 4rem;
+  line-height: 1.5;
   font-size: 2.5rem;
 }
 
@@ -74,12 +74,21 @@
   .profilePicture {
     display: none;
   }
-
+  .name {
+    font-size: 2rem;
+  }
+  .actionButtons {
+    margin-top: 0;
+  }
   .leftContent {
     justify-content: center;
     margin: auto;
     padding: 0;
-    height: 60vh;
+  }
+  .leftTexts{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 
   .leftContent div{
@@ -97,5 +106,30 @@
 
   .decorativeLine {
     display: none;
+  }
+}
+
+@media(max-width: 640px) {
+  .subtitle{
+    font-size: 1.2rem;
+  }
+  .name{
+    width: 100%;
+    font-size: 1.8rem;
+  }
+  .actionButtons button{
+    font-size: 1rem;
+  }
+}
+
+@media(max-width: 400px) {
+  .subtitle{
+    font-size: 1rem;
+  }
+  .name{
+    font-size: 1.6rem;
+  }
+  .actionButtons{
+    flex-direction: column;
   }
 }

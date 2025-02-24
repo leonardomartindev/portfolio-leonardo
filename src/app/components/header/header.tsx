@@ -18,7 +18,7 @@ export default function Header({ headerData }: HeaderProps) {
   return (
     <header className={styles.header} id="home">
       <div className={styles.leftContent}>
-        <div>
+        <div className={styles.leftTexts}>
           <h2 className={styles.subtitle}>
             &lt;{currentText}
             <span className={styles.cursor}>|{" /"}</span>&gt;

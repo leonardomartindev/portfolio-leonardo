@@ -60,13 +60,13 @@ export default async function Home() {
   const formatedResponseSocialLinks = socialReponse.landingpage.sociallinks;
 
   return (
-    <>
+    <main className={styles.main}>
       <Header headerData={formatedResponseHeader} />
       <About aboutData={formatedResponseAbout} />
       <Skills skillsData={formatedResponseSkills} />
       <Projects projectsData={formatedResponseProjects} />
       <Contact />
       <SocialLinks socialLinksData={formatedResponseSocialLinks} />
-    </>
+    </main>
   );
 }

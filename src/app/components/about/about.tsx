@@ -13,7 +13,7 @@ export default function About({ aboutData }: AboutProps) {
   const typedTitle = useTypingEffect([titleText], 100, 50, 2000);
 
   return (
-    <section id='sobre' className={styles.aboutSection}>
+    <section id='sobre'  className={styles.aboutSection}>
       <h1 className={styles.aboutTitle}>&gt; {typedTitle}</h1>
       {aboutData.paragraph.map((paragraph, i) => (
         <p className={styles.paragraph} key={i}>{paragraph.paragraph}</p>

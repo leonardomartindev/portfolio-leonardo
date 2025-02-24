@@ -27,7 +27,6 @@ export default function RootLayout({
         <div className="container">
         <Suspense fallback={<LoadingTerminal />}>{children}</Suspense>
           {" "}
-          {/* Container centralizado */}
         </div>
       </body>
     </html>

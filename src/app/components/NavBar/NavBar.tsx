@@ -6,13 +6,11 @@ import styles from "./style.module.css";
 export default function NavBar() {
   useEffect(() => {
     const handleHomeClick = (e: Event) => {
-      e.preventDefault(); // Previne o comportamento padrão do link
+      e.preventDefault();
 
-      // Redireciona para a página inicial (/)
       if (window.location.pathname !== "/") {
         window.location.href = "/";
       } else {
-        // Se já estivermos na página inicial, rola para o topo
         window.scrollTo({
           top: 0,
           behavior: "smooth",
@@ -20,7 +18,6 @@ export default function NavBar() {
       }
     };
 
-    // Adiciona o evento de clique ao link da home
     const homeLink = document.querySelector(`.${styles.nav} a[href="/"]`);
     if (homeLink) {
       homeLink.addEventListener("click", handleHomeClick);

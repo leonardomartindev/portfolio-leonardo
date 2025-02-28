@@ -49,6 +49,7 @@ export default function Header({ headerData }: HeaderProps) {
             width={200}
             height={400}
             src={headerData.profilephoto.url}
+            quality={100}
           />
           <Image
             src="/lineHeader.svg"

@@ -21,43 +21,29 @@ import Projects from "./components/projects/Projects";
 import Contact from "./components/contact/Contact";
 import SocialLinks from "./components/socialLinks/SocialLinks";
 
+// Adicionar revalidação para cache
+export const revalidate = 3600; // Revalida a cada hora
+
 export default async function Home() {
-  // Header section
-  const headerReponse = (await performRequest(
-    HEADER_CONTENT_QUERY,
-    {}
-  )) as HeaderType;
+  const [
+    headerReponse,
+    aboutReponse,
+    skillsReponse,
+    projectsReponse,
+    socialReponse,
+  ] = await Promise.all([
+    performRequest(HEADER_CONTENT_QUERY, {}),
+    performRequest(ABOUT_CONTENT_QUERY, {}),
+    performRequest(SKILLS_CONTENT_QUERY, {}),
+    performRequest(PROJETCTS_CONTENT_QUERY, {}),
+    performRequest(SOCIAL_CONTENT_QUERY, {}),
+  ]);
 
-  // About section
-  const aboutReponse = (await performRequest(
-    ABOUT_CONTENT_QUERY,
-    {}
-  )) as AboutType;
-
-  // Skills section
-  const skillsReponse = (await performRequest(
-    SKILLS_CONTENT_QUERY,
-    {}
-  )) as SkillsType;
-
-  // Projects section
-  const projectsReponse = (await performRequest(
-    PROJETCTS_CONTENT_QUERY,
-    {}
-  )) as ProjectsType;
-
-  // Social links section
-  const socialReponse = (await performRequest(
-    SOCIAL_CONTENT_QUERY,
-    {}
-  )) as SocialLinksType;
-
-  const formatedResponseHeader = headerReponse.landingpage.header;
-  const formatedResponseAbout = aboutReponse.landingpage.aboutMe;
-  const formatedResponseSkills = skillsReponse.landingpage.skills.skills;
-  const formatedResponseProjects =
-    projectsReponse.landingpage.projects.projects;
-  const formatedResponseSocialLinks = socialReponse.landingpage.sociallinks;
+  const formatedResponseHeader = (headerReponse as HeaderType).landingpage.header;
+  const formatedResponseAbout = (aboutReponse as AboutType).landingpage.aboutMe;
+  const formatedResponseSkills = (skillsReponse as SkillsType).landingpage.skills.skills;
+  const formatedResponseProjects = (projectsReponse as ProjectsType).landingpage.projects.projects;
+  const formatedResponseSocialLinks = (socialReponse as SocialLinksType).landingpage.sociallinks;
 
   return (
     <main className={styles.main}>

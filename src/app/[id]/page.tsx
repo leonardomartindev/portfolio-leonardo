@@ -3,12 +3,15 @@ import { PROJETCTS_CONTENT_QUERY } from "@/lib/queries";
 import { ProjectsType } from "@/types/pageData";
 import ProjectDetails from "../components/ProjectDetails/ProjectDetails";
 
+// Adicionar revalidação para cache
+export const revalidate = 3600; // Revalida a cada hora
+
 export default async function Page({
   params,
 }: {
-  params: Promise<{ id: string }>
+  params: Promise<{ id: string }>;
 }) {
-  const id = (await params).id
+  const id = (await params).id;
 
   const projectsReponse = (await performRequest(
     PROJETCTS_CONTENT_QUERY,
